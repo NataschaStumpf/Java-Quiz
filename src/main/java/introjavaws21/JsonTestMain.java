@@ -10,7 +10,7 @@ public class JsonTestMain {
     public static void main(String[] args){
 
         // define JSON
-        String jsonSource = "{ \"title\" : \"Coder From Scratch\" }";
+        String jsonSource = "{ \"question\" : \"How are you?\", \"answer\" : \"I am fine.\"  }";
 
         // surround with try catch
         try {
@@ -19,7 +19,8 @@ public class JsonTestMain {
 
             // access attribute title using the get
             // read attribute as text
-            System.out.println(node.get("title").asText());
+            System.out.println(node.get("question").asText());
+            System.out.println(node.get("answer").asText());
 
         } catch (IOException e){
             e.printStackTrace();
