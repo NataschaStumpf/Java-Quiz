@@ -1,0 +1,17 @@
+{
+  "questions" : [{
+
+    "id": 1,
+    "question": "Wie sieht die Signatur der Einstiegs-Methode aus?",
+    "answer": "public static void main(String[] args)",
+    "categories": ["java"]
+  },
+    {
+      "id": 2,
+      "question": "Wie heißt das keyword für die Objekt Vererbung?",
+      "choices": ["inherit", "extends", "implement", "child", "sub"],
+      "answer": "extends",
+      "categories": ["java"]
+    }
+  ]
+}
