@@ -7,7 +7,8 @@ public class Quiz {
     private String answer;
     private String categories;
 
-    // Getter Setter id
+
+    // Getter and Setter id
     public int getId() {
         return id;
     }
@@ -32,9 +33,7 @@ public class Quiz {
     }
 
     // Getter and Setter categories
-    public String getCategories() {
-        return categories;
-    }
+    public String getCategories() {return categories;}
     public void setCategories(String categories) {
         this.categories = categories;
     }
