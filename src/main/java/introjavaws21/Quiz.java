@@ -6,9 +6,10 @@ public class Quiz {
     private String question;
     private String answer;
     private String categories;
+    private String choices;
 
 
-    // Getter and Setter id
+    // Getter and  Setter id
     public int getId() {
         return id;
     }
@@ -34,11 +35,14 @@ public class Quiz {
 
     // Getter and Setter categories
     public String getCategories() {return categories;}
-    public void setCategories(String categories) {
-        this.categories = categories;
-    }
+    public void setCategories(String categories) { this.categories = categories; }
+
+    // Getter and Setter choices
+    public String getChoices() {return choices;}
+    public void setChoices(String choices) { this.categories = choices; }
+
 
     public String toString(){
-        return this.id+" | "+this.question +" | "+this.answer+" | "+this.categories;
+        return this.id+" | "+this.question +" | "+this.answer+" | "+this.categories+" | "+this.choices;
     }
 }
