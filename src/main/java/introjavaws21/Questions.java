@@ -2,8 +2,7 @@ package introjavaws21;
 
 import java.util.List;
 
-public class Question {
-
+public class Questions {
     private int id;
     private String question;
     private String answer;
@@ -52,6 +51,6 @@ public class Question {
 
     @Override
     public String toString() {
-        return this.id+" | "+this.question +" | "+this.answer+" | "+this.categories+" | "+this.choices;
+        return this.id + " | " + this.question + " | " + this.answer + " | " + this.categories + " | " + this.choices;
     }
 }

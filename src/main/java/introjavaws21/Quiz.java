@@ -3,15 +3,15 @@ package introjavaws21;
 import java.util.List;
 
 public class Quiz {
-    public List<Question> getQuestions() {
+    public List<Questions> getQuestions() {
         return questions;
     }
 
-    public void setQuestions(List<Question> questions) {
+    public void setQuestions(List<Questions> questions) {
         this.questions = questions;
     }
 
-    private List<Question> questions;
+    private List<Questions> questions;
 
     @Override
     public String toString() {
