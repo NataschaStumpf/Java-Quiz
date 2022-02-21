@@ -3,6 +3,8 @@ package introjavaws21;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.nio.file.Path;
+
 // @SpringBootApplication is a convenience annotation that adds:
 // @Configuration: Tags the class as a source of bean definitions for the application context.
 // @EnableAutoConfiguration: Tells Spring Boot to start adding beans based on classpath settings,other beans, and various property settings.
@@ -10,7 +12,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class QuizApplication {
 
-	// public static Questions questions;
+	public static QuizService quizService;
+
+	static {
+		quizService = new QuizService(Path.of("questions.json"), Path.of("history.json"));
+	}
+
 
 	public static void main(String[] args) {
 

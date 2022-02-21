@@ -8,28 +8,29 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class QuizController {
 
-    private final Questions questions;
+    private QuizService quizService = QuizApplication.quizService;
 
-    public QuizController(Questions questions) {
-        this.questions = questions;
-    }
-
-    // @GetMapping ensures that HTTP GET requests to /greeting are mapped to the greeting() method
+     // @GetMapping ensures that HTTP GET requests to /greeting are mapped to the greeting() method
     @GetMapping("/startquiz")
     public String startQuiz(){
-        return "hallo";
+        Quiz quiz = quizService.createNewQuiz(5, "java"); //
+        return "hallo"; // return first quiz question(quizId, questionId, text, possible aswers)
     }
 
     @GetMapping("/answer")
-    public String startQuiz(int quizid, String questionid, String answer){
-    Quiz quiz = QuizService.get(quizid); //update database json
-    right = quiz.getQuestions(questionsID); //return next question
-    answer == right;
-    // save answer and score back to database
-    return "score: ";
+    public String answer(int quizid, String questionid, String answer){
+    Quiz quiz = quizService.getQuizId(quizid); //update database json
+    Questions question = quiz.getQuestions(questionsID); //return next question
+
+    // check answer and remember it
+    // quizService.safe(quizId, questionId, answer)
+
+     return quiz.nextQuestion();
     }
 
-    public Questions questions(){
-        return QuizApplication.questions.get("java", 1);
-  }
+    @GetMapping("/nextquestion")
+    public String next(int quizid){
+        Quiz quiz = quizService.getQuizId(quizid);
+        return quiz.getNextQuestion();
+    }
 }

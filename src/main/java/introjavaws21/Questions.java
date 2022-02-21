@@ -6,6 +6,7 @@ public class Questions {
     private int id;
     private String question;
     private String answer;
+
     private List<String> categories;
     private List<String> choices;
 
