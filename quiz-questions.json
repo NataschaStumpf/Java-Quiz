@@ -1,6 +1,10 @@
 {
-  "questions" : [{
 
+  "categories": [
+    "java"
+  ],
+
+  "questions" : [{
     "id": 1,
     "question": "Wie sieht die Signatur der Einstiegs-Methode aus?",
     "answer": "public static void main(String[] args)",
@@ -13,5 +17,8 @@
       "answer": "extends",
       "categories": ["java"]
     }
+  ],
+
+  "quizzes" : [
   ]
 }

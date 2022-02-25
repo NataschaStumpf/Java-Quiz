@@ -2,7 +2,7 @@ package introjava.ws2122;
 
 import java.util.List;
 
-public class Questions {
+public class Question {
     private int id;
     private String question;
     private String answer;

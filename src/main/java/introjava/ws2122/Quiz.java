@@ -3,15 +3,22 @@ package introjava.ws2122;
 import java.util.List;
 
 public class Quiz {
-    public List<Questions> getQuestions() {
+    private int quizId;
+    private List<Question> questions;
+    private int nextQuestionIdx = 0;
+
+    private List<String> answers = new ArrayList<>();
+
+    public Quiz(int quizId, List<Question> quizQuestions, String category) {
+    }
+
+    public List<Question> getQuestions() {
         return questions;
     }
 
-    public void setQuestions(List<Questions> questions) {
+    public void setQuestions(List<Question> questions) {
         this.questions = questions;
     }
-
-    private List<Questions> questions;
 
     @Override
     public String toString() {
@@ -20,9 +27,19 @@ public class Quiz {
                 '}';
     }
 
-    public Object getNextQuestion() {
-        int idx = questions.indexOf(uid);
-        if (idx < 0 || idx+1 == questions.size()) return "";
-        return questions.get(idx + 1);
+    public QuizQuestion getNextQuestion() {
+        Question question = questions.get(nextQuestionIdx);
+        return new QuizQuestion(quizId, question.getId(), question.getChoices());
+    }
+
+    public Question getQuestion(int questionId) {
+    }
+
+    public QuizScore getScore() {
+    }
+
+    public void save(int questionId, boolean result, Question answer) {
+        answers.set(questionId, answer);
+        nextQuestionIdx++;
     }
 }

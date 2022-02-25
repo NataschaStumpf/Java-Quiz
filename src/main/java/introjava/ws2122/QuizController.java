@@ -12,45 +12,31 @@ public class QuizController {
 
      // @GetMapping ensures that HTTP GET requests to /greeting are mapped to the greeting() method
     @GetMapping("/startQuiz")
-    public String startQuiz(){
+    public QuizQuestion startQuiz(){
         Quiz quiz = quizService.createNewQuiz(2, "java");
         // return first quiz question(quizId, questionId, text, possible answers)
-        return quizId;
-        return questionId;
-        return choices;
+        return quiz.getNextQuestion();
     }
 
     @GetMapping("/answer")
-    public String answer(int quizId, String questionId, Questions answer){
-        Quiz quiz = quizService.getQuizId(quizId);; //update database json
-        Questions questions = quiz.getQuestions(questionId);
-        Questions answer = quiz.getAnswer;
+    public AnswerResult answer(int quizId, int questionId, Question answer){
+        Quiz quiz = quizService.getQuizById(quizId);; //update database json
+        Question question = quiz.getQuestion(questionId);
 
-        String givenAnswer = "";
-        String rightAnswer = new String("");
-
-        if(givenAnswer.equals(rightAnswer)){
-            System.out.println("The answer is correct");
-        }
-        else {
-            System.out.println("The answer is wrong");
-        }
-
-        quizService.Safe(quizId, questionId, answer);
-        return givenAnswer;
-        return rightAnswer;
+        boolean result = question.getAnswer().equals(answer);
+        quizService.safe(quizId, questionId, result, answer);
+        return new AnswerResult(quizId, questionId, result, question.getAnswer());
     }
 
-
     @GetMapping("/nextQuestion")
-    public String next(int quizId){
-        Quiz quiz = quizService.getQuizId(quizId);
-        return (String) quiz.getNextQuestion();
+    public QuizQuestion next(int quizId){
+        Quiz quiz = quizService.getQuizById(quizId);
+        return quiz.getNextQuestion();
     }
 
     @GetMapping("/quizScore")
-    public int quizScore(int quizScore){
-        Quiz quiz = quizService.QuizScore(quizzes);
-        return quizScore;
+    public QuizScore quizScore(int quizId){
+        Quiz quiz = quizService.getQuizById(quizId);
+        return quiz.getScore();
     }
 }

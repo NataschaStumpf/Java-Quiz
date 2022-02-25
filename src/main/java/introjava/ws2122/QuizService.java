@@ -5,67 +5,58 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Path;
-import java.util.List;
+import java.util.*;
 
 // database
 public class QuizService {
 
-    private int quizId;
-    private String questionId;
-    public int getQuizId() { return this.quizId; }
-    public void setQuizId(int quizId) {
-        this.quizId = quizId;
-    }
+    private QuestionDatabase db;
+    private Map<String, List<Question>> categoryQuestions;
+    private List<Quiz> quizzes;
 
-    public String getQuestionId() {
-        return questionId;
-    }
-    public void setQuestionId(String questionId) {
-        this.questionId = questionId;
-    }
-
-
-    public QuizService(int quizId, String questionId, Questions answer) {
-        for (int i = 0; i < 2; i++);
-    }
-
-    public Quiz createNewQuiz(int i, String java) {
-        return new Quiz();
-    }
-
-    private List<Questions> questions;
-
-    private Path quizzes;
-
-    public Path getQuizzes() { return quizzes;}
-    public void setQuizzes(Path quizzes) {this.quizzes = quizzes;}
-
-    public static void main(String[] args) throws MalformedURLException {
-
-        ObjectMapper objectMapper = new ObjectMapper();
-        Path path = Path.of("quiz-questions.json");
-        Path quizzes = Path.of("history.json"); //?
-
-        try {
-            Quiz quiz = objectMapper.readValue(path.toUri().toURL(), Quiz.class);
-            System.out.println(quiz);
-        } catch (IOException e) {
-            e.printStackTrace();
+    public QuizService(QuestionDatabase db) {
+        this.db = db;
+        categoryQuestions = new HashMap<>();
+        for(Question q : db.getQuestions()){
+            for(String c: q.getCategories()){
+                List<Question> questions = categoryQuestions.getOrDefault(c, new ArrayList<>());
+                questions.add(q);
+                categoryQuestions.put(c, questions);
+            }
         }
     }
 
-    public QuizService(Path path, Path quizzes) {
-        // load questions, load quizzes
+    public static QuizService load() throws IOException {
+        ObjectMapper jackson = new ObjectMapper();
+        QuestionDatabase db = jackson.readValue(Path.of("quiz-questions").toUri().toURL(), QuestionDatabase.class);
+        return new QuizService(db);
     }
 
-    public void Safe(int quizId, String questionId, Questions answer) {
-            this.quizId = quizId;
-            this.questionId = questionId;
-            this.answer = answer;
+    public Quiz createNewQuiz(int count, String category) {
+       List<Question> possibleQuestions = categoryQuestions.getOrDefault(category, Collections.emptyList());
+       Collections.shuffle(possibleQuestions);
+
+       List<Question> quizQuestions = new ArrayList<>(count);
+       for(int i=0; i < count && i < possibleQuestions.size(); i++){
+           quizQuestions.add(possibleQuestions.get(i));
+       }
+       Quiz quiz = new Quiz(quizzes.size(), quizQuestions, category);
+       quizzes.add(quiz);
+       save();
+       return quiz;
     }
-    public Safe(int quizId, String questionId, Questions answer) {
-        this(quizId, questionId, answer);
+
+    public Quiz getQuizById(int quizId) {
+        return quizzes.get(quizId);
     }
-    Safe safe = new Safe(quizzes);
-    gson.toJson(safe, new FileWriter(Path quizzes));
+
+    public void safe(int quizId, int questionId, boolean result, Question answer) {
+        Quiz quiz = quizzes.get(quizId);
+        quiz.save(questionId, result, answer);
+        save();
+    }
+
+    private void save(){
+        //TODO safe all quizzes?
+    }
 }
