@@ -1,7 +1,5 @@
 package introjava.ws2122;
 
-import introjava.ws2122.Questions;
-
 import java.util.List;
 
 public class Quiz {
@@ -20,5 +18,11 @@ public class Quiz {
         return "Quiz{" +
                 "questions=" + questions+
                 '}';
+    }
+
+    public Object getNextQuestion() {
+        int idx = questions.indexOf(uid);
+        if (idx < 0 || idx+1 == questions.size()) return "";
+        return questions.get(idx + 1);
     }
 }

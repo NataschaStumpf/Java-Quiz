@@ -11,7 +11,7 @@ public class JSONtoJava {
 
     public static void main(String[] args) throws MalformedURLException {
 
-        ObjectMapper objectMapperTest = new ObjectMapperTest();
+        ObjectMapper objectMapperTest = new ObjectMapper();
         Path pathTest = Path.of("quiz-questions.json");
         
         try {
