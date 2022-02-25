@@ -1,4 +1,4 @@
-package introjavaws21;
+package introjava.ws2122;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,9 +15,8 @@ public class QuizApplication {
 	public static QuizService quizService;
 
 	static {
-		quizService = new QuizService(Path.of("questions.json"), Path.of("history.json"));
+		quizService = new QuizService(Path.of("quiz-questions.json"), Path.of("history.json"));
 	}
-
 
 	public static void main(String[] args) {
 

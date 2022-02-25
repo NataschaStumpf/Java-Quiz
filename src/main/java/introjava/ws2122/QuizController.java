@@ -1,4 +1,4 @@
-package introjavaws21;
+package introjava.ws2122;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,18 +14,25 @@ public class QuizController {
     @GetMapping("/startquiz")
     public String startQuiz(){
         Quiz quiz = quizService.createNewQuiz(5, "java"); //
-        return "hallo"; // return first quiz question(quizId, questionId, text, possible aswers)
+        return "hallo"; // return first quiz question(quizId, questionId, text, possible answers)
     }
 
     @GetMapping("/answer")
     public String answer(int quizid, String questionid, String answer){
     Quiz quiz = quizService.getQuizId(quizid); //update database json
-    Questions question = quiz.getQuestions(questionsID); //return next question
+    Questions question = quiz.getQuestions(questionsID);
+    Questions answer = quiz.get
+    return quiz.getNextQuestion();//return next question
+
+    String a = "abc";
+    String b = new String("abc)");
+
+    if(a.equals())
+
 
     // check answer and remember it
     // quizService.safe(quizId, questionId, answer)
 
-     return quiz.nextQuestion();
     }
 
     @GetMapping("/nextquestion")

@@ -1,4 +1,6 @@
-package introjavaws21;
+package introjava.ws2122;
+
+import introjava.ws2122.Questions;
 
 import java.util.List;
 

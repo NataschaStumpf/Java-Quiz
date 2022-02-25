@@ -1,4 +1,4 @@
-package introjavaws21;
+package introjava.ws2122;
 
 import java.util.List;
 
