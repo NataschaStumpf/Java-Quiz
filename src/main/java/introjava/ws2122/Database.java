@@ -2,7 +2,7 @@ package introjava.ws2122;
 
 import java.util.List;
 
-public class QuestionDatabase {
+public class Database {
     List<Question> questions;
     List<String> categories;
 
@@ -30,5 +30,14 @@ public class QuestionDatabase {
 
     public void setCategories(List<String> categories) {
         this.categories = categories;
+    }
+
+    @Override
+    public String toString() {
+        return "QuestionDatabase{" +
+                "questions=" + questions +
+                ", categories=" + categories +
+                ", quizzes=" + quizzes +
+                '}';
     }
 }

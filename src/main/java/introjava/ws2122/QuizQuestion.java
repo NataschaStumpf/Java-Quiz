@@ -4,12 +4,12 @@ import java.util.List;
 
 public class QuizQuestion {
     private int quizId;
-    private int questionId;
+    private String txt;
     private List<String> answers;
 
-    public QuizQuestion(int quizId, int id, List<String> choices) {
+    public QuizQuestion(int quizId, String txt, List<String> choices) {
         this.quizId = quizId;
-        this.questionId = id;
+        this.txt = txt;
         this.answers = choices;
     }
 
@@ -17,7 +17,7 @@ public class QuizQuestion {
     public String toString() {
         return "QuizQuestion{" +
                 "quizId=" + quizId +
-                ", questionId=" + questionId +
+                ", txt=" + txt +
                 ", answers=" + answers +
                 '}';
     }
@@ -30,12 +30,12 @@ public class QuizQuestion {
         this.quizId = quizId;
     }
 
-    public int getQuestionId() {
-        return questionId;
+    public String getTxt() {
+        return txt;
     }
 
-    public void setQuestionId(int questionId) {
-        this.questionId = questionId;
+    public void setTxt(String txt) {
+        this.txt = txt;
     }
 
     public List<String> getAnswers() {

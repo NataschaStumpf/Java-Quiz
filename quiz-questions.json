@@ -1,24 +1,107 @@
 {
-
-  "categories": [
-    "java"
-  ],
-
-  "questions" : [{
-    "id": 1,
-    "question": "Wie sieht die Signatur der Einstiegs-Methode aus?",
-    "answer": "public static void main(String[] args)",
-    "categories": ["java"]
-  },
-    {
-      "id": 2,
-      "question": "Wie heißt das keyword für die Objekt Vererbung?",
-      "choices": ["inherit", "extends", "implement", "child", "sub"],
-      "answer": "extends",
-      "categories": ["java"]
-    }
-  ],
-
-  "quizzes" : [
-  ]
+  "questions" : [ {
+    "id" : 1,
+    "question" : "Wie sieht die Signatur der Einstiegs-Methode aus?",
+    "answer" : "public static void main(String[] args)",
+    "categories" : [ "java" ],
+    "choices" : null
+  }, {
+    "id" : 2,
+    "question" : "Wie heißt das keyword für die Objekt Vererbung?",
+    "answer" : "extends",
+    "categories" : [ "java" ],
+    "choices" : [ "inherit", "extends", "implement", "child", "sub" ]
+  } ],
+  "categories" : [ "java" ],
+  "quizzes" : [ {
+    "quizId" : 0,
+    "questions" : [ {
+      "id" : 2,
+      "question" : "Wie heißt das keyword für die Objekt Vererbung?",
+      "answer" : "extends",
+      "categories" : [ "java" ],
+      "choices" : [ "inherit", "extends", "implement", "child", "sub" ]
+    }, {
+      "id" : 1,
+      "question" : "Wie sieht die Signatur der Einstiegs-Methode aus?",
+      "answer" : "public static void main(String[] args)",
+      "categories" : [ "java" ],
+      "choices" : null
+    } ],
+    "category" : "java",
+    "answers" : [ ],
+    "nextQuestionIdx" : 0
+  }, {
+    "quizId" : 1,
+    "questions" : [ {
+      "id" : 1,
+      "question" : "Wie sieht die Signatur der Einstiegs-Methode aus?",
+      "answer" : "public static void main(String[] args)",
+      "categories" : [ "java" ],
+      "choices" : null
+    }, {
+      "id" : 2,
+      "question" : "Wie heißt das keyword für die Objekt Vererbung?",
+      "answer" : "extends",
+      "categories" : [ "java" ],
+      "choices" : [ "inherit", "extends", "implement", "child", "sub" ]
+    } ],
+    "category" : "java",
+    "answers" : [ ],
+    "nextQuestionIdx" : 0
+  }, {
+    "quizId" : 2,
+    "questions" : [ {
+      "id" : 2,
+      "question" : "Wie heißt das keyword für die Objekt Vererbung?",
+      "answer" : "extends",
+      "categories" : [ "java" ],
+      "choices" : [ "inherit", "extends", "implement", "child", "sub" ]
+    }, {
+      "id" : 1,
+      "question" : "Wie sieht die Signatur der Einstiegs-Methode aus?",
+      "answer" : "public static void main(String[] args)",
+      "categories" : [ "java" ],
+      "choices" : null
+    } ],
+    "category" : "java",
+    "answers" : [ "extends", "public static void main(String[] args)" ],
+    "nextQuestionIdx" : 2
+  }, {
+    "quizId" : 3,
+    "questions" : [ {
+      "id" : 2,
+      "question" : "Wie heißt das keyword für die Objekt Vererbung?",
+      "answer" : "extends",
+      "categories" : [ "java" ],
+      "choices" : [ "inherit", "extends", "implement", "child", "sub" ]
+    }, {
+      "id" : 1,
+      "question" : "Wie sieht die Signatur der Einstiegs-Methode aus?",
+      "answer" : "public static void main(String[] args)",
+      "categories" : [ "java" ],
+      "choices" : null
+    } ],
+    "category" : "java",
+    "answers" : [ "extends", "weiss ich nicht" ],
+    "nextQuestionIdx" : 2
+  }, {
+    "quizId" : 4,
+    "questions" : [ {
+      "id" : 1,
+      "question" : "Wie sieht die Signatur der Einstiegs-Methode aus?",
+      "answer" : "public static void main(String[] args)",
+      "categories" : [ "java" ],
+      "choices" : null
+    }, {
+      "id" : 2,
+      "question" : "Wie heißt das keyword für die Objekt Vererbung?",
+      "answer" : "extends",
+      "categories" : [ "java" ],
+      "choices" : [ "inherit", "extends", "implement", "child", "sub" ]
+    } ],
+    "category" : "java",
+    "answers" : [ "weiss ich nicht", "weiss ich nicht" ],
+    "nextQuestionIdx" : 2
+  } ]
 }
