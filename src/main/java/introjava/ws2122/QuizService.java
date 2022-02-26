@@ -43,14 +43,14 @@ public class QuizService {
            quizQuestions.add(possibleQuestions.get(i));
        }
 
-       Quiz quiz = new Quiz(db.getQuizzes().size(), quizQuestions, category);
-       db.getQuizzes().add(quiz);
+       Quiz quiz = new Quiz(db.getQuizes().size(), quizQuestions, category);
+       db.getQuizes().add(quiz);
        save();
        return quiz;
     }
 
     public Quiz getQuizById(int quizId) {
-        return db.getQuizzes().get(quizId);
+        return db.getQuizes().get(quizId);
     }
 
     public void safe(int quizId, boolean result, String answer) throws IOException {

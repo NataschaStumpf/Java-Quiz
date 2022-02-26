@@ -8,12 +8,12 @@ public class Database {
 
     List<Quiz> quizzes;
 
-    public List<Quiz> getQuizzes() {
-        return quizzes;
+    public List<Quiz> getQuizes() {
+        return quizes;
     }
 
     public void setQuizzes(List<Quiz> quizzes) {
-        this.quizzes = quizzes;
+        this.quizes = quizes;
     }
 
     public List<Question> getQuestions() {
@@ -37,7 +37,7 @@ public class Database {
         return "QuestionDatabase{" +
                 "questions=" + questions +
                 ", categories=" + categories +
-                ", quizzes=" + quizzes +
+                ", quizes=" + quizes +
                 '}';
     }
 }
