@@ -6,7 +6,7 @@ public class Database {
     List<Question> questions;
     List<String> categories;
 
-    List<Quiz> quizzes;
+    List<Quiz> quizes;
 
     public List<Quiz> getQuizes() {
         return quizes;

@@ -16,7 +16,6 @@ public class Quiz {
     }
 
 
-
     public Quiz(int quizId, List<Question> quizQuestions, String category) {
         this.quizId = quizId;
         this.questions = quizQuestions;
@@ -47,6 +46,8 @@ public class Quiz {
         return nextQuestionIdx;
     }
 
+    // nextQuestion.Idx: Index kann größer sein als die Fragen, die ich habe
+    // keine Abbruch-Bestimmung für das Quiz (kann quasi unendlich laufen)
     public void setNextQuestionIdx(int nextQuestionIdx) {
         this.nextQuestionIdx = nextQuestionIdx;
     }

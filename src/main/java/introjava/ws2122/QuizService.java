@@ -37,6 +37,10 @@ public class QuizService {
        List<Question> possibleQuestions = categoryQuestions.getOrDefault(category, Collections.emptyList());
        Collections.shuffle(possibleQuestions);
 
+        // Kategorie wird übergeben --> Fragen herausgeholt (kann auch leer sein)
+        // Array wird zurückgeben mit den Fragen zur entsprechenden Kategorie
+        // Maximal-Größe des Quiz bestimmen count und questions
+        // von 0 angefangen solange durchlaufen bis count kleier ist als die möglichen Fragen ODER alle möglichen Fragen durch sind
        int limit = Math.min(count, possibleQuestions.size());
        List<Question> quizQuestions = new ArrayList<>(limit);
         for(int i=0; i < limit; i++){
