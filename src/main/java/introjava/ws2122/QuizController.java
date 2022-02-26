@@ -26,8 +26,10 @@ public class QuizController {
     public AnswerResult answer(int quizId, String answer) throws IOException {
         Quiz quiz = quizService.getQuizById(quizId);; //update database json
         Question question = quiz.getNextQuestion();
+        // boolean true/false
         boolean result = question.getAnswer().equals(answer);
         quizService.safe(quizId, result, answer);
+        // richtige Antwort anzeigen lassen
         return new AnswerResult(quizId, question.getId(), result, question.getAnswer());
     }
 

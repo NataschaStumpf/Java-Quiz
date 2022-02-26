@@ -10,6 +10,7 @@ import java.util.*;
 // database
 public class QuizService {
 
+    // json file mit dem Quiz einlesen
     private static final Path dbJSON = Path.of("quiz-questions.json");
     private static final ObjectMapper jackson = new ObjectMapper();
 
@@ -28,17 +29,20 @@ public class QuizService {
         }
     }
 
+    // Quiz wird geladen
     public static QuizService load() throws IOException {
         Database db = jackson.readValue(dbJSON.toUri().toURL(), Database.class);
         return new QuizService(db);
     }
 
-    public Quiz createNewQuiz(int count, String category) throws IOException {
-       List<Question> possibleQuestions = categoryQuestions.getOrDefault(category, Collections.emptyList());
-       Collections.shuffle(possibleQuestions);
 
+    public Quiz createNewQuiz(int count, String category) throws IOException {
         // Kategorie wird übergeben --> Fragen herausgeholt (kann auch leer sein)
         // Array wird zurückgeben mit den Fragen zur entsprechenden Kategorie
+       List<Question> possibleQuestions = categoryQuestions.getOrDefault(category, Collections.emptyList());
+       // shuffle: zufällige Frage genommen
+       Collections.shuffle(possibleQuestions);
+
         // Maximal-Größe des Quiz bestimmen count und questions
         // von 0 angefangen solange durchlaufen bis count kleier ist als die möglichen Fragen ODER alle möglichen Fragen durch sind
        int limit = Math.min(count, possibleQuestions.size());
@@ -59,10 +63,12 @@ public class QuizService {
 
     public void safe(int quizId, boolean result, String answer) throws IOException {
         Quiz quiz = getQuizById(quizId);
+        // die Antwort sollen in der json file gespeichert werden
         quiz.save(result, answer);
         save();
     }
 
+    // gegebene Antworten in json file geschrieben (save)
     private void save() throws IOException {
         jackson.writerWithDefaultPrettyPrinter()
                 .writeValue(dbJSON.toFile(), db);
