@@ -12,13 +12,16 @@ public class QuizService {
 
     // json file mit dem Quiz einlesen
     private static final Path dbJSON = Path.of("quiz-questions.json");
+    // Json lesbar
     private static final ObjectMapper jackson = new ObjectMapper();
 
     private final Database db;
     private final Map<String, List<Question>> categoryQuestions;
 
+    // database erstellt
     public QuizService(Database db) {
         this.db = db;
+        // Fragen derselben Kategorie sollen abgefragt werden
         categoryQuestions = new HashMap<>();
         for(Question q : db.getQuestions()){
             for(String c: q.getCategories()){
@@ -51,6 +54,7 @@ public class QuizService {
            quizQuestions.add(possibleQuestions.get(i));
        }
 
+       // Quiz läuft durch, wird gespeichert und dann geht ein neues Quiz los
        Quiz quiz = new Quiz(db.getQuizes().size(), quizQuestions, category);
        db.getQuizes().add(quiz);
        save();
@@ -70,6 +74,7 @@ public class QuizService {
 
     // gegebene Antworten in json file geschrieben (save)
     private void save() throws IOException {
+        // Jackson Writer "mitschreiben" der gegebenen Antworten
         jackson.writerWithDefaultPrettyPrinter()
                 .writeValue(dbJSON.toFile(), db);
     }

@@ -60,6 +60,7 @@ public class Quiz {
         this.questions = questions;
     }
 
+    // Annotation: Methode der Elternklasse soll überschrieben werden (keinen direkten Einfluss auf Code)
     @Override
     public String toString() {
         return "Quiz{" +
